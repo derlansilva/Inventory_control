@@ -15,6 +15,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    
     'product.apps.ProductConfig',
     'core.apps.CoreConfig',
     'estoque.apps.EstoqueConfig',

@@ -21,6 +21,7 @@ class Estoque(TimeStampedModel):
     def __str__(self):
         return str(self.pk)
 
+
 class EstoqueItens(models.Model):
     estoque =models.ForeignKey( Estoque , on_delete= models.CASCADE)
     produto = models.ForeignKey(Product ,  on_delete=models.CASCADE)
