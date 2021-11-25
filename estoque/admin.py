@@ -18,3 +18,4 @@ class EstoqueAdmin(admin.ModelAdmin):
     search_fields =('nf',)
     list_filter = ('funcionario',)
     date_hierarchy = 'created'
+
