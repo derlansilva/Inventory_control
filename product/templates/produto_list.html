@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content%}
+<div class="page-header">
+    <h2><i class="fa fa-user">Lista de Produtos</i></h2>
+
+    {% if object_list %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Importado</th>
+                <th>NCM</th>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th class="text-center">Estoque</th>
+                <th class="text-center">Estoque minimo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for object in object_list %}
+            <tr>
+                <td>
+                    {% if object.imported %}
+                        <i class="fa-check-circle ok"></i>
+                    {%else%}
+                    <span>não</span>
+                        <i class="fa fa-minus-circle no"></i>
+                    {% endif %}
+                </td>
+                <td> {{ object.ncm}} </td>
+                <td> {{ object.product }} </td>
+                <td>R$: <span class="pull-right">{{object.price}}</span> </td>
+                <td class="text-center"> {{ object.inventory }} </td>
+                <td class="text-center"> {{ object.minimum_inventory }} </td>
+                <td><button class="btn btn-primary" >abrir</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <a href="" class="alert alert-warning">Sem itens na lista</a>
+    {% endif %}
+</div>
+{% endblock content %}
