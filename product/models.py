@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-
+#created product models here
 
 class Product(models.Model):
     imported = models.BooleanField(default= True)
