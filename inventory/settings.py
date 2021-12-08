@@ -15,7 +15,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    
+    'widget_tweaks',
     'product.apps.ProductConfig',
     'core.apps.CoreConfig',
     'estoque.apps.EstoqueConfig',

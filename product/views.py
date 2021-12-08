@@ -16,3 +16,7 @@ def product_detail(request , pk):
     obj = Product.objects.get(pk = pk)
     context = {'object_list' : obj}
     return render(request , template_name  , context )
+
+def product_add(request):
+    template_name = 'product_form.html'
+    return render(request  , template_name)
