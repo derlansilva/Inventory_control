@@ -1,5 +1,7 @@
 from django.db import models
 
+
+from django.urls import reverse_lazy   
 # Create your models here.
 #created product models here
 
@@ -18,3 +20,6 @@ class Product(models.Model):
 
     def __str__(self) :
         return self.product
+
+    def get_absolute_url(self):
+        return reverse_lazy('produto:product_detail' , kwargs= {'pk': self.pk})

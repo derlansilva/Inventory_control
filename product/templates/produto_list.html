@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Importado</th>
+                <th>id</th>
                 <th>NCM</th>
                 <th>Produto</th>
                 <th>Preço</th>
@@ -18,22 +19,27 @@
         </thead>
         <tbody>
             {% for object in object_list %}
-            <tr>
-                <td>
-                    {% if object.imported %}
-                        <i class="fa-check-circle ok"></i>
-                    {%else%}
-                    <span>não</span>
-                        <i class="fa fa-minus-circle no"></i>
-                    {% endif %}
-                </td>
-                <td> {{ object.ncm}} </td>
-                <td> {{ object.product }} </td>
-                <td>R$: <span class="pull-right">{{object.price}}</span> </td>
-                <td class="text-center"> {{ object.inventory }} </td>
-                <td class="text-center"> {{ object.minimum_inventory }} </td>
-                <td><button class="btn btn-primary" >abrir</button></td>
-            </tr>
+                <tr>
+                    <td>
+                        {% if object.imported %}
+                        <span></span>
+                            <i class="fa-check-circle ok"></i>
+                        {%else%}
+                        <span></span>
+                            <i class="fa fa-minus-circle no"></i>
+                        {% endif %}
+                    </td>
+                    <td> {{ object.id}} </td>
+                    <td> {{ object.ncm}} </td>
+                    <td>
+                        <a href="{{ object.get_absolute_url }}">{{ object.product }} 
+                    </td>
+                    <td>R$: <span class="pull-right">{{object.price}}</span> </td>
+                    <td class="text-center"> {{ object.inventory }} </td>
+                    <td class="text-center"> {{ object.minimum_inventory }} </td>
+                    
+                </tr>
+        
             {% endfor %}
         </tbody>
     </table>

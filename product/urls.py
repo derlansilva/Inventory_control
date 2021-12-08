@@ -5,5 +5,6 @@ from product import views as v
 app_name = 'produto'
 
 urlpatterns = [
-    path('' , v.produto_list)
+    path('' , v.produto_list , name='product_list'),
+    path('<int:pk>/' , v.product_detail , name='product_detail'),
 ]
