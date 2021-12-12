@@ -23,3 +23,5 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy('produto:product_detail' , kwargs= {'pk': self.pk})
+
+    

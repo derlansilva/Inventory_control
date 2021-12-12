@@ -1,14 +1,17 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
     <a href="{% url 'produto:product_list' %}">Voltar</a>
     <h1>{{ object_list }}
 
         <span class="pull-right">
-            <a href=""></a>
-            <button type="button" class="btn btn-success">
-                <span class="fa fa-pencil">Editar</span>
-            </button>
+
+            <a href="{% url 'produto:product_edit' object_list.pk %}">
+
+                <button type="button" class="btn btn-success">
+                    <span class="fa fa-pencil">Editar</span>
+                </button>
+            </a>
         </span>
     </h1>
     
@@ -19,13 +22,11 @@
                     <th class="text-right">Importado</th>
                     <td>
                         {% if object_list.imported %}
-                        <span></span>
-                            <i class="fa-check-circle ok"></i>
-                        {%else%}
-                        <span></span>
-                            <i class="fa fa-minus-circle no"></i>
+                          <i class="fa fa-check-circle ok"></i>
+                        {% else %}
+                          <i class="fa fa-minus-circle no"></i>
                         {% endif %}
-                    </td>
+                      </td>
                 </tr>
 
                 <tr>

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content%}
 <div class="page-header">
     <h2>Lista de Produtos
@@ -31,12 +31,13 @@
                     <td>
                         {% if object.imported %}
                         <span></span>
-                            <i class="fa-check-circle ok"></i>
-                        {%else%}
+                          <i class="fa fa-check-circle ok"></i>
+                        {% else %}
                         <span></span>
-                            <i class="fa fa-minus-circle no"></i>
+                          <i class="fa fa-minus-circle no"></i>
                         {% endif %}
-                    </td>
+                      </td>
+                    
                     <td> {{ object.id}} </td>
                     <td> {{ object.ncm}} </td>
                     <td>

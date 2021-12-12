@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views.generic import CreateView , UpdateView
+from product.form import ProductForm
 from .models import Product
 
 # Create your views here.
@@ -20,3 +22,15 @@ def product_detail(request , pk):
 def product_add(request):
     template_name = 'product_form.html'
     return render(request  , template_name)
+
+class ProductCreate(CreateView):
+    model = Product
+    template_name =   'product_form.html'
+    form_class = ProductForm
+
+
+
+class ProductUpdate(UpdateView):
+    model = Product
+    template_name = 'product_form.html'
+    form_class = ProductForm
