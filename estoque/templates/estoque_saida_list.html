@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
-{% load static %}
+
 {% block content %}
+
 <div class="page-header">
-    <h2>Estoque entrada
+    <h2>Saida Estoque
         <span class="pull-right">
-            <a href="#">
-                <button type="button" class="btn btn-primary">
-                    <span class="fa fa-plus"></span>Adicionar
+            <a href="">
+                <button class="btn btn-primary">
+                    <span class="fa fa-plus">
+                        Adicionar
+                    </span>
                 </button>
             </a>
         </span>
     </h2>
-
     {% if object_list %}
     <table class="table table-striped">
         <thead>
@@ -27,7 +29,7 @@
             {% for object in object_list %}
                 <tr>
                     <td>
-                        <a href="{% url 'estoque:estoque_entrada_detail' object.pk %}">{{object}}</a>    
+                        <a href="{% url 'estoque:estoque_saida_detail'  object.pk %}">{{object}}</a>    
                     </td>
                     
                     <td> {{ object.nf_formated}} </td>
@@ -41,5 +43,6 @@
     {% else %}
         <a href="" class="alert alert-warning">Sem itens na lista</a>
     {% endif %}
+    
 </div>
 {% endblock content %}
