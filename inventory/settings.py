@@ -15,6 +15,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrapform',
     'widget_tweaks',
     'product.apps.ProductConfig',
     'core.apps.CoreConfig',
