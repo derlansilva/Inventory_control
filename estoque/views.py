@@ -3,6 +3,7 @@ from django.http.response import  HttpResponseRedirect
 from django.shortcuts import render, resolve_url
 
 from estoque.forms import EstoqueForm, EstoqueItensForm
+from product.models import Product
 from .models import Estoque, EstoqueItens
 
 # Create your views here.
@@ -36,6 +37,7 @@ def entrada_form(request):
         if form.is_valid() and formset.is_valid():
             form = form.save()
             formset = formset.save()
+            dar_baixa_estoque(form)
             url = 'estoque:estoque_entrada_detail'
             return HttpResponseRedirect(resolve_url(url , form.pk))
     else: 
@@ -45,6 +47,16 @@ def entrada_form(request):
     context = {'form' :form , 'formset': formset}
     return render(request , template_name , context)
 
+
+def dar_baixa_estoque(form):
+    produtos = form.estoques.all()
+    print('form = ' ,form.estoques.all())
+    for item in produtos:
+        produto = Product.objects.get(pk = item.produto.pk)
+        print('produto e igual' , produto.inventory) 
+        produto.inventory = item.saldo
+        produto.save()
+    print("estoque atualizado com sucesso")
 
 def saida_list(request):
     template_name = 'estoque_saida_list.html'
