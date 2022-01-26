@@ -70,3 +70,7 @@ def saida_datail(request , pk):
     obj = Estoque.objects.get(pk = pk)
     context = {'object' : obj}
     return render(request , template_name  , context)
+
+
+def saida_form(request):
+    pass
